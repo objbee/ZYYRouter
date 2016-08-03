@@ -16,6 +16,9 @@
 		95944E181D5248DF0069BC8C /* ZYYRouterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 95944E171D5248DF0069BC8C /* ZYYRouterTests.m */; };
 		95944E231D5248DF0069BC8C /* ZYYRouterUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 95944E221D5248DF0069BC8C /* ZYYRouterUITests.m */; };
 		95944E331D5249060069BC8C /* ZYYRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 95944E321D5249060069BC8C /* ZYYRouter.m */; };
+		95944E361D524BF30069BC8C /* ZYYViewController1.m in Sources */ = {isa = PBXBuildFile; fileRef = 95944E351D524BF30069BC8C /* ZYYViewController1.m */; };
+		95944E391D524C150069BC8C /* ZYYViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = 95944E381D524C150069BC8C /* ZYYViewController2.m */; };
+		95944E3C1D5251040069BC8C /* ZYYViewController3.m in Sources */ = {isa = PBXBuildFile; fileRef = 95944E3B1D5251040069BC8C /* ZYYViewController3.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +57,12 @@
 		95944E241D5248DF0069BC8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		95944E311D5249060069BC8C /* ZYYRouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYYRouter.h; sourceTree = "<group>"; };
 		95944E321D5249060069BC8C /* ZYYRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYYRouter.m; sourceTree = "<group>"; };
+		95944E341D524BF30069BC8C /* ZYYViewController1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYYViewController1.h; sourceTree = "<group>"; };
+		95944E351D524BF30069BC8C /* ZYYViewController1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYYViewController1.m; sourceTree = "<group>"; };
+		95944E371D524C150069BC8C /* ZYYViewController2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYYViewController2.h; sourceTree = "<group>"; };
+		95944E381D524C150069BC8C /* ZYYViewController2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYYViewController2.m; sourceTree = "<group>"; };
+		95944E3A1D5251040069BC8C /* ZYYViewController3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYYViewController3.h; sourceTree = "<group>"; };
+		95944E3B1D5251040069BC8C /* ZYYViewController3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYYViewController3.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +118,12 @@
 				95944E011D5248DF0069BC8C /* AppDelegate.m */,
 				95944E031D5248DF0069BC8C /* ViewController.h */,
 				95944E041D5248DF0069BC8C /* ViewController.m */,
+				95944E341D524BF30069BC8C /* ZYYViewController1.h */,
+				95944E351D524BF30069BC8C /* ZYYViewController1.m */,
+				95944E371D524C150069BC8C /* ZYYViewController2.h */,
+				95944E381D524C150069BC8C /* ZYYViewController2.m */,
+				95944E3A1D5251040069BC8C /* ZYYViewController3.h */,
+				95944E3B1D5251040069BC8C /* ZYYViewController3.m */,
 				95944E061D5248DF0069BC8C /* Main.storyboard */,
 				95944E091D5248DF0069BC8C /* Assets.xcassets */,
 				95944E0B1D5248DF0069BC8C /* LaunchScreen.storyboard */,
@@ -215,6 +230,7 @@
 		95944DF21D5248DF0069BC8C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = ZYY;
 				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = yuanye;
 				TargetAttributes = {
@@ -284,7 +300,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				95944E051D5248DF0069BC8C /* ViewController.m in Sources */,
+				95944E361D524BF30069BC8C /* ZYYViewController1.m in Sources */,
+				95944E391D524C150069BC8C /* ZYYViewController2.m in Sources */,
 				95944E021D5248DF0069BC8C /* AppDelegate.m in Sources */,
+				95944E3C1D5251040069BC8C /* ZYYViewController3.m in Sources */,
 				95944DFF1D5248DF0069BC8C /* main.m in Sources */,
 				95944E331D5249060069BC8C /* ZYYRouter.m in Sources */,
 			);
@@ -510,6 +529,7 @@
 				95944E291D5248DF0069BC8C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		95944E2A1D5248DF0069BC8C /* Build configuration list for PBXNativeTarget "ZYYRouterTests" */ = {
 			isa = XCConfigurationList;
@@ -518,6 +538,7 @@
 				95944E2C1D5248DF0069BC8C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		95944E2D1D5248DF0069BC8C /* Build configuration list for PBXNativeTarget "ZYYRouterUITests" */ = {
 			isa = XCConfigurationList;
@@ -526,6 +547,7 @@
 				95944E2F1D5248DF0069BC8C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
