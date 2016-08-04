@@ -45,4 +45,7 @@ Drag the `ZYYRouter/ZYYRouter/ZYYRouter` folder into your project.
 - (void)popToRootViewControllerAnimated:(BOOL)animated;
 ```
 
+## About
+
+[ZYYRouter](http://www.devzhou.com/2016/08/04/zyyrouter/)
 
