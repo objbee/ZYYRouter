@@ -7,8 +7,12 @@
 //
 
 #import "ZYYRouter.h"
+#import <objc/runtime.h>
 
 @implementation ZYYRouter
+
+#pragma mark - singleton
+
 + (instancetype)sharedRouter {
     static ZYYRouter *router = nil;
     static dispatch_once_t onceToken;
@@ -20,7 +24,7 @@
     return router;
 }
 
-#pragma mark- public
+#pragma mark - public method
 
 - (void)setRootViewControllerWithClassName:(NSString *)className {
     UIViewController *viewController = [self getViewControllerWithClassName:className];
@@ -128,30 +132,30 @@
 #pragma mark - private
 
 - (void)pushViewController:(UIViewController *)viewController parameters:(NSDictionary *)parameters navigationController:(UINavigationController *)navigationController animated:(BOOL)animated {
-    if (!viewController || [viewController isKindOfClass:[UINavigationController class]] || !navigationController) {
-        return;
-    }
+    if (!viewController || [viewController isKindOfClass:[UINavigationController class]] || !navigationController) return;
+    
     [self mapViewController:viewController parameters:parameters];
     [viewController setHidesBottomBarWhenPushed:YES];
     [navigationController pushViewController:viewController animated:animated];
 }
 
 - (void)presentViewController:(UIViewController *)viewController parameters:(NSDictionary *)parameters animated:(BOOL)animated {
-    if (!viewController) {
-        return;
-    }
+    if (!viewController) return;
+    
     [self mapViewController:viewController parameters:parameters];
     UIViewController *vc = [[self class] visibleViewControllerWithRootViewController:[[self class] visibleViewController]];
     [vc presentViewController:viewController animated:animated completion:^{}];
 }
 
 - (void)mapViewController:(UIViewController *)viewController parameters:(NSDictionary *)parameters {
-    if (!viewController || [viewController isKindOfClass:[UINavigationController class]]) {
-        return;
-    }
+    if (!viewController || [viewController isKindOfClass:[UINavigationController class]]) return;
+    
+    // safe check
+    NSArray *properties = [self p_getPropertyNamesByObject:viewController];
     [parameters enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
-        // TODO: 安全性检测
-        [viewController setValue:obj forKey:key];
+        if ([properties containsObject:key]) {
+            [viewController setValue:obj forKey:key];
+        }
     }];
 }
 
@@ -179,6 +183,22 @@
     } else {
         return rootViewController;
     }
+}
+
+#pragma mark - private method
+
+- (NSArray *)p_getPropertyNamesByObject:(id)object {
+    unsigned int outCount, i;
+    objc_property_t *properties = class_copyPropertyList([object class], &outCount);
+    NSMutableArray *nameArray = [[NSMutableArray alloc] initWithCapacity:outCount];
+    for (i = 0; i < outCount; i++) {
+        objc_property_t property = properties[i];
+        NSString *propertyName = [[NSString alloc] initWithCString:property_getName(property) encoding:NSUTF8StringEncoding];
+        [nameArray addObject:propertyName];
+    }
+    free(properties);
+    
+    return nameArray.copy;
 }
 
 #pragma mark - setter and getter
